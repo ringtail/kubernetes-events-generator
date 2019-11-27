@@ -24,10 +24,50 @@
 #   go-tests = true
 #   unused-packages = true
 
+[[override]]
+  version = "v1.14.1"
+  name = "k8s.io/kubernetes"
 
-[[constraint]]
+[[override]]
+  name = "gopkg.in/fsnotify.v1"
+  source = "https://github.com/fsnotify/fsnotify.git"
+  version="v1.4.7"
+
+[[override]]
+  version = "kubernetes-1.14.1"
   name = "k8s.io/client-go"
-  version = "12.0.0"
+
+[[override]]
+  version = "kubernetes-1.14.1"
+  name = "k8s.io/apiserver"
+
+[[override]]
+  version = "kubernetes-1.14.1"
+  name = "k8s.io/api"
+
+[[override]]
+  version = "kubernetes-1.14.1"
+  name = "k8s.io/component-base"
+
+[[override]]
+  revision = "c2654d5206da6b7b6ace12841e8f359bb89b443c"
+  name = "k8s.io/utils"
+
+[[override]]
+  revision = "b3a7cee44a305be0a69e1b9ac03018307287e1b0"
+  name = "k8s.io/kube-openapi"
+
+[[override]]
+  revision = "e85c7b244fd2cc57bb829d73a061f93a441e63ce"
+  name = "sigs.k8s.io/structured-merge-diff"
+
+[[override]]
+  version = "kubernetes-1.14.1"
+  name = "k8s.io/apimachinery"
+
+[[override]]
+  version = "kubernetes-1.14.1"
+  name = "k8s.io/apiextensions-apiserver"
 
 [prune]
   go-tests = true

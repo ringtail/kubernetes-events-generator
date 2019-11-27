@@ -1,15 +1,12 @@
 package main
 
 import (
-	"k8s.io/client-go/tools/clientcmd"
-	"k8s.io/client-go/util/homedir"
-	"path/filepath"
-	"k8s.io/client-go/kubernetes"
 	"flag"
 	"fmt"
+	"k8s.io/client-go/kubernetes"
+	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/tools/record"
 	"k8s.io/klog"
-
 	"k8s.io/api/core/v1"
 	"k8s.io/client-go/kubernetes/scheme"
 	typedcorev1 "k8s.io/client-go/kubernetes/typed/core/v1"
@@ -44,12 +41,7 @@ var generatorManager *GeneratorManager
 
 func init() {
 
-	var kubeconfig string
-	if home := homedir.HomeDir(); home != "" {
-		kubeconfig = filepath.Join(home, ".kube", "config")
-	}
-
-	config, err := clientcmd.BuildConfigFromFlags("", kubeconfig)
+	config, err := clientcmd.BuildConfigFromFlags("", "")
 	if err != nil {
 		panic(err)
 	}
@@ -72,6 +64,8 @@ func init() {
 		generators: make(map[string]Generator),
 	}
 	generatorManager.register(NewDeploymentGenerator(clientSet, recorder, 0))
+	generatorManager.register(NewNodeGenerator(clientSet, recorder))
+	generatorManager.register(NewPodGenerator(clientSet, recorder, 0))
 }
 
 func main() {
