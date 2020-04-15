@@ -35,6 +35,9 @@ spec:
             cpu: 100m
             memory: 100Mi
       serviceAccount: admin
- ```
+```
+Then you can get Events from kube-eventer DingTalk Bot. 
+
+
  ## Related projects 
 <a href="https://github.com/AliyunContainerService/kube-eventer">kube-eventer</a>: kube-eventer emit kubernetes events to sinks.
