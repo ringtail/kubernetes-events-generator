@@ -24,7 +24,6 @@ spec:
       containers:
       - command:
         - /root/kubernetes-events-generator
-#        - -enableLeaderElection=true
         image: registry.aliyuncs.com/ringtail/kubernetes-events-generator:0.2
         imagePullPolicy: Always
         name: kubernetes-events-generator
@@ -38,4 +37,4 @@ spec:
       serviceAccount: admin
  ```
  ## Related projects 
-<a href="https://github.com/AliyunContainerService/kube-eventer">kube-eventer</a>,kube-eventer emit kubernetes events to sinks.
+<a href="https://github.com/AliyunContainerService/kube-eventer">kube-eventer</a>: kube-eventer emit kubernetes events to sinks.
